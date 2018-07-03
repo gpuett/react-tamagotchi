@@ -16,7 +16,7 @@ class Fatigue extends React.Component {
   handleSleep(){
     let currentFatigueLevel = this.state.fatigueLevel;
     if (currentFatigueLevel < 20) {
-      this.setState({fatigueLevel: 0})
+      this.setState({fatigueLevel: 0});
     } else {
       this.setState({fatigueLevel: currentFatigueLevel - 20});
     }

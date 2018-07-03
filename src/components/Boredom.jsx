@@ -16,7 +16,7 @@ class Boredom extends React.Component {
   handlePlay(){
     let currentBoredomLevel = this.state.boredomLevel;
     if (currentBoredomLevel < 20) {
-      this.setState({boredomLevel: 0})
+      this.setState({boredomLevel: 0});
     } else {
       this.setState({boredomLevel: currentBoredomLevel - 20});
     }
@@ -49,7 +49,7 @@ class Boredom extends React.Component {
           <p>Boredom</p>
           <ProgressBar now={this.state.boredomLevel} />
           <Play
-          onHandlePlay={this.handlePlay}/>
+            onHandlePlay={this.handlePlay}/>
         </div>
       </div>
     );

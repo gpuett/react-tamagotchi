@@ -16,7 +16,7 @@ class Hunger extends React.Component {
   handleFeed(){
     let currentHungerLevel = this.state.hungerLevel;
     if (currentHungerLevel < 20) {
-      this.setState({hungerLevel: 0})
+      this.setState({hungerLevel: 0});
     } else {
       this.setState({hungerLevel: currentHungerLevel - 20});
     }
