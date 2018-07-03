@@ -24,7 +24,9 @@ class Fatigue extends React.Component {
 
   incrementFatigue(){
     let currentFatigueLevel = this.state.fatigueLevel;
-    this.setState({fatigueLevel: currentFatigueLevel+1});
+    if (currentFatigueLevel < 100) {
+      this.setState({fatigueLevel: currentFatigueLevel+1});
+    }
   }
 
   componentDidMount() {

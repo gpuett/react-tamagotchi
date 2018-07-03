@@ -24,7 +24,9 @@ class Hunger extends React.Component {
 
   incrementHunger(){
     let currentHungerLevel = this.state.hungerLevel;
-    this.setState({hungerLevel: currentHungerLevel+1});
+    if (currentHungerLevel < 100) {
+      this.setState({hungerLevel: currentHungerLevel+1});
+    }
   }
 
   componentDidMount() {

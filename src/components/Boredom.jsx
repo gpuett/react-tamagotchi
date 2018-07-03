@@ -24,7 +24,9 @@ class Boredom extends React.Component {
 
   incrementBoredom(){
     let currentBoredomLevel = this.state.boredomLevel;
-    this.setState({boredomLevel: currentBoredomLevel+2});
+    if (currentBoredomLevel < 100) {
+      this.setState({boredomLevel: currentBoredomLevel+2});
+    }
   }
 
   componentDidMount() {
