@@ -1,6 +1,7 @@
 import React from 'react';
 import Play from './Play';
 import ProgressBar from 'react-bootstrap/lib/ProgressBar';
+import PropTypes from 'prop-types';
 
 class Boredom extends React.Component {
 
@@ -14,7 +15,11 @@ class Boredom extends React.Component {
 
   handlePlay(){
     let currentBoredomLevel = this.state.boredomLevel;
-    this.setState({boredomLevel: currentBoredomLevel - 20});
+    if (currentBoredomLevel < 20) {
+      this.setState({boredomLevel: 0})
+    } else {
+      this.setState({boredomLevel: currentBoredomLevel - 20});
+    }
   }
 
   incrementBoredom(){
@@ -36,14 +41,23 @@ class Boredom extends React.Component {
           .boredom-wrapper {
             width: 200px;
           }
+          .boredom-wrapper p{
+            font-weight: bold;
+          }
         `}</style>
         <div className='boredom-wrapper'>
+          <p>Boredom</p>
           <ProgressBar now={this.state.boredomLevel} />
-          <Play />
+          <Play
+          onHandlePlay={this.handlePlay}/>
         </div>
       </div>
     );
   }
 }
+
+Boredom.propTypes = {
+  onHandlePlay: PropTypes.func
+};
 
 export default Boredom;

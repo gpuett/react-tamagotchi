@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Feed(){
+function Feed(props){
   return(
     <div>
       <style jsx>{`
@@ -9,10 +10,14 @@ function Feed(){
         }
       `}</style>
       <div className='feed-wrapper'>
-        <button className='btn btn-primary'>Feed</button>
+        <button className='btn btn-primary' onClick={props.onHandleFeed} >Feed</button>
       </div>
     </div>
   );
 }
+
+Feed.propTypes = {
+  onHandleFeed: PropTypes.func
+};
 
 export default Feed;

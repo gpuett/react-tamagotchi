@@ -1,6 +1,7 @@
 import React from 'react';
 import Sleep from './Sleep';
 import ProgressBar from 'react-bootstrap/lib/ProgressBar';
+import PropTypes from 'prop-types';
 
 class Fatigue extends React.Component {
 
@@ -14,12 +15,16 @@ class Fatigue extends React.Component {
 
   handleSleep(){
     let currentFatigueLevel = this.state.fatigueLevel;
-    this.setState({fatigueLevel: currentFatigueLevel - 20});
+    if (currentFatigueLevel < 20) {
+      this.setState({fatigueLevel: 0})
+    } else {
+      this.setState({fatigueLevel: currentFatigueLevel - 20});
+    }
   }
 
   incrementFatigue(){
     let currentFatigueLevel = this.state.fatigueLevel;
-    this.setState({fatigueLevel: currentFatigueLevel+1})
+    this.setState({fatigueLevel: currentFatigueLevel+1});
   }
 
   componentDidMount() {
@@ -36,14 +41,23 @@ class Fatigue extends React.Component {
           .fatigue-wrapper {
             width: 200px;
           }
+          .fatigue-wrapper p {
+            font-weight: bold;
+          }
         `}</style>
         <div className='fatigue-wrapper'>
+          <p>Fatigue</p>
           <ProgressBar now={this.state.fatigueLevel} />
-          <Sleep />
+          <Sleep
+            onHandleSleep={this.handleSleep}/>
         </div>
       </div>
     );
   }
 }
+
+Fatigue.propTypes = {
+  onHandleSleep: PropTypes.func
+};
 
 export default Fatigue;

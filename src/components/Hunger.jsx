@@ -1,6 +1,7 @@
 import React from 'react';
 import Feed from './Feed';
 import ProgressBar from 'react-bootstrap/lib/ProgressBar';
+import PropTypes from 'prop-types';
 
 class Hunger extends React.Component {
 
@@ -14,7 +15,11 @@ class Hunger extends React.Component {
 
   handleFeed(){
     let currentHungerLevel = this.state.hungerLevel;
-    this.setState({hungerLevel: currentHungerLevel - 20});
+    if (currentHungerLevel < 20) {
+      this.setState({hungerLevel: 0})
+    } else {
+      this.setState({hungerLevel: currentHungerLevel - 20});
+    }
   }
 
   incrementHunger(){
@@ -32,19 +37,27 @@ class Hunger extends React.Component {
   render() {
     return(
       <div>
-
         <style jsx>{`
           .hunger-wrapper {
             width: 200px;
           }
+          .hunger-wrapper p {
+            font-weight: bold;
+          }
         `}</style>
         <div className='hunger-wrapper'>
+          <p>Hunger</p>
           <ProgressBar now={this.state.hungerLevel} />
-          <Feed />
+          <Feed
+            onHandleFeed={this.handleFeed}/>
         </div>
       </div>
     );
   }
 }
+
+Hunger.propTypes = {
+  onHandleFeed: PropTypes.func
+};
 
 export default Hunger;

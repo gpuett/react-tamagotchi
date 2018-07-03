@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Sleep(){
+function Sleep(props){
   return(
     <div>
       <style jsx>{`
@@ -9,11 +10,15 @@ function Sleep(){
         }
       `}</style>
       <div className='sleep-wrapper'>
-        <button className='btn btn-primary'>Sleep</button>
+        <button className='btn btn-primary' onClick={props.onHandleSleep}>Sleep</button>
 
       </div>
     </div>
   );
 }
+
+Sleep.propTypes = {
+  onHandleFeed: PropTypes.func
+};
 
 export default Sleep;
