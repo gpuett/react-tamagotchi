@@ -1,5 +1,6 @@
 import React from 'react';
 import Sleep from './Sleep';
+import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 
 class Fatigue extends React.Component {
   render() {
@@ -7,11 +8,11 @@ class Fatigue extends React.Component {
       <div>
         <style jsx>{`
           .fatigue-wrapper {
-
+            width: 200px;
           }
         `}</style>
         <div className='fatigue-wrapper'>
-          <p>Fatigue bar</p>
+          <ProgressBar now={60} />
           <Sleep />
         </div>
       </div>

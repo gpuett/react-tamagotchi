@@ -9,7 +9,7 @@ function Play(){
         }
       `}</style>
       <div className='play-wrapper'>
-        <button>Play</button>
+        <button className='btn btn-primary'>Play</button>
 
       </div>
     </div>

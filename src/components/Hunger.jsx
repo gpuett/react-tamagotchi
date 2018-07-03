@@ -1,6 +1,6 @@
 import React from 'react';
 import Feed from './Feed';
-import { ProgressBar } from 'react-bootstrap';
+import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 
 class Hunger extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class Hunger extends React.Component {
       <div>
         <style jsx>{`
           .hunger-wrapper {
-
+            width: 200px;
           }
         `}</style>
         <div className='hunger-wrapper'>

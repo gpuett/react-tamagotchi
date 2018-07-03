@@ -9,7 +9,7 @@ function Feed(){
         }
       `}</style>
       <div className='feed-wrapper'>
-        <button>Feed</button>
+        <button className='btn btn-primary'>Feed</button>
 
       </div>
     </div>

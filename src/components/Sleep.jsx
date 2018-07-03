@@ -9,7 +9,7 @@ function Sleep(){
         }
       `}</style>
       <div className='sleep-wrapper'>
-        <button>Sleep</button>
+        <button className='btn btn-primary'>Sleep</button>
 
       </div>
     </div>
