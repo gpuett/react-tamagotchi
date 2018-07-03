@@ -8,11 +8,11 @@ function Header() {
         .header {
           display: flex;
           justify-content: space-around;
+          padding-top: 20px;
         }
       `}</style>
       <div className='header'>
         <Link to='/'>Home</Link>
-        <h1>React Tamagotchi</h1>
         <Link to='/stats'>Stats</Link>
       </div>
     </div>

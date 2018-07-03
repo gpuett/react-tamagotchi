@@ -10,7 +10,6 @@ function Feed(){
       `}</style>
       <div className='feed-wrapper'>
         <button className='btn btn-primary'>Feed</button>
-
       </div>
     </div>
   );

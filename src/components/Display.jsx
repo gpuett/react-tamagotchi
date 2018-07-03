@@ -16,6 +16,7 @@ class Display extends React.Component {
             .status-wrapper {
               display: flex;
               justify-content: space-around;
+              padding-top: 40px;
             }
             `}</style>
         <div className='display-wrapper'>
