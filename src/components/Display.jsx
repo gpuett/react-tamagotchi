@@ -6,6 +6,8 @@ import Fatigue from './Fatigue';
 
 class Display extends React.Component {
 
+
+
   render() {
     return(
       <div>

@@ -3,6 +3,32 @@ import Sleep from './Sleep';
 import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 
 class Fatigue extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      fatigueLevel: 0
+    };
+    this.handleSleep = this.handleSleep.bind(this);
+  }
+
+  handleSleep(){
+    let currentFatigueLevel = this.state.fatigueLevel;
+    this.setState({fatigueLevel: currentFatigueLevel - 20});
+  }
+
+  incrementFatigue(){
+    let currentFatigueLevel = this.state.fatigueLevel;
+    this.setState({fatigueLevel: currentFatigueLevel+1})
+  }
+
+  componentDidMount() {
+    this.getTired = setInterval(() =>
+      this.incrementFatigue(),
+    3000
+    );
+  }
+
   render() {
     return(
       <div>
@@ -12,7 +38,7 @@ class Fatigue extends React.Component {
           }
         `}</style>
         <div className='fatigue-wrapper'>
-          <ProgressBar now={60} />
+          <ProgressBar now={this.state.fatigueLevel} />
           <Sleep />
         </div>
       </div>
