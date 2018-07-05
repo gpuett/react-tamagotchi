@@ -7,9 +7,9 @@ import Fatigue from './Fatigue';
 import PropTypes from 'prop-types';
 
 function Display(props) {
-  let imageToDisplay = <img src={Sif}/>
+  let imageToDisplay = <img src={Sif}/>;
   if (props.isDead) {
-    imageToDisplay = <div><img src={Nito}/> <p>Your pet died</p></div>
+    imageToDisplay = <div><img src={Nito}/> <p>Your pet died</p></div>;
   }
   return(
     <div>

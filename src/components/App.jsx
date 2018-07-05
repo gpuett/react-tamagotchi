@@ -75,15 +75,15 @@ class App extends React.Component {
   componentDidMount() {
     this.increment = setInterval(() =>
       this.incrementBoredom(),
-    100
+    1000
     );
     this.getTired = setInterval(() =>
       this.incrementFatigue(),
-    300
+    3000
     );
     this.getHungry = setInterval(() =>
       this.incrementHunger(),
-    100
+    1000
     );
   }
 
