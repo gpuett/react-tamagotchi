@@ -4,6 +4,12 @@ import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 import PropTypes from 'prop-types';
 
 function Boredom(props) {
+  let progressColor = 'success';
+  if (props.boredomLevel >= 75) {
+    progressColor = 'danger';
+  } else if (props.boredomLevel >= 50) {
+    progressColor = 'warning';
+  }
   let buttonToDisplay = <Play onHandlePlay={props.onHandlePlay}/>;
   if (props.isDead) {
     buttonToDisplay = null;
@@ -20,7 +26,7 @@ function Boredom(props) {
       `}</style>
       <div className='boredom-wrapper'>
         <p>Boredom</p>
-        <ProgressBar now={props.boredomLevel} />
+        <ProgressBar bsStyle={progressColor} now={props.boredomLevel} />
         {buttonToDisplay}
       </div>
     </div>
