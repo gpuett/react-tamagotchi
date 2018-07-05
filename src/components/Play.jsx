@@ -18,7 +18,8 @@ function Play(props){
 }
 
 Play.propTypes = {
-  onHandlePlay: PropTypes.func
+  onHandlePlay: PropTypes.func,
+  isDead: PropTypes.bool
 };
 
 export default Play;

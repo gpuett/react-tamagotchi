@@ -18,7 +18,8 @@ function Sleep(props){
 }
 
 Sleep.propTypes = {
-  onHandleSleep: PropTypes.func
+  onHandleSleep: PropTypes.func,
+  isDead: PropTypes.bool
 };
 
 export default Sleep;

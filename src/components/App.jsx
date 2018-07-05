@@ -10,7 +10,8 @@ class App extends React.Component {
     this.state = {
       boredomLevel: 0,
       hungerLevel: 0,
-      fatigueLevel: 0
+      fatigueLevel: 0,
+      isDead: false
     };
     this.handlePlay = this.handlePlay.bind(this);
     this.handleSleep = this.handleSleep.bind(this);
@@ -28,7 +29,9 @@ class App extends React.Component {
 
   incrementBoredom(){
     let currentBoredomLevel = this.state.boredomLevel;
-    if (currentBoredomLevel < 100) {
+    if (currentBoredomLevel >= 100) {
+      this.setState({isDead: true});
+    } else if (currentBoredomLevel < 100 && this.state.isDead === false) {
       this.setState({boredomLevel: currentBoredomLevel+2});
     }
   }
@@ -44,7 +47,9 @@ class App extends React.Component {
 
   incrementFatigue(){
     let currentFatigueLevel = this.state.fatigueLevel;
-    if (currentFatigueLevel < 100) {
+    if (currentFatigueLevel >= 100) {
+      this.setState({isDead: true});
+    } else if (currentFatigueLevel < 100 && this.state.isDead === false) {
       this.setState({fatigueLevel: currentFatigueLevel+1});
     }
   }
@@ -60,7 +65,9 @@ class App extends React.Component {
 
   incrementHunger(){
     let currentHungerLevel = this.state.hungerLevel;
-    if (currentHungerLevel < 100) {
+    if (currentHungerLevel >= 100) {
+      this.setState({isDead: true});
+    } else if (currentHungerLevel < 100 && this.state.isDead === false) {
       this.setState({hungerLevel: currentHungerLevel+1});
     }
   }
@@ -68,18 +75,17 @@ class App extends React.Component {
   componentDidMount() {
     this.increment = setInterval(() =>
       this.incrementBoredom(),
-    1000
+    100
     );
     this.getTired = setInterval(() =>
       this.incrementFatigue(),
-    3000
+    300
     );
     this.getHungry = setInterval(() =>
       this.incrementHunger(),
-    1000
+    100
     );
   }
-
 
   render() {
     return (
@@ -104,7 +110,8 @@ class App extends React.Component {
               fatigueLevel={this.state.fatigueLevel}
               onHandleSleep={this.handleSleep}
               hungerLevel={this.state.hungerLevel}
-              onHandleFeed={this.handleFeed}/>} />
+              onHandleFeed={this.handleFeed}
+              isDead={this.state.isDead}/>} />
             <Route path='/stats' component={Stats} />
           </Switch>
         </div>

@@ -4,6 +4,10 @@ import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 import PropTypes from 'prop-types';
 
 function Boredom(props) {
+  let buttonToDisplay = <Play onHandlePlay={props.onHandlePlay}/>;
+  if (props.isDead) {
+    buttonToDisplay = null;
+  }
   return(
     <div>
       <style jsx>{`
@@ -17,8 +21,7 @@ function Boredom(props) {
       <div className='boredom-wrapper'>
         <p>Boredom</p>
         <ProgressBar now={props.boredomLevel} />
-        <Play
-          onHandlePlay={props.onHandlePlay}/>
+        {buttonToDisplay}
       </div>
     </div>
   );
@@ -26,7 +29,8 @@ function Boredom(props) {
 
 Boredom.propTypes = {
   onHandlePlay: PropTypes.func,
-  boredomLevel: PropTypes.number
+  boredomLevel: PropTypes.number,
+  isDead: PropTypes.bool
 };
 
 export default Boredom;

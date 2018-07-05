@@ -17,7 +17,8 @@ function Feed(props){
 }
 
 Feed.propTypes = {
-  onHandleFeed: PropTypes.func
+  onHandleFeed: PropTypes.func,
+  isDead: PropTypes.bool
 };
 
 export default Feed;

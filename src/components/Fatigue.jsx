@@ -4,6 +4,10 @@ import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 import PropTypes from 'prop-types';
 
 function Fatigue(props) {
+  let buttonToDisplay = <Sleep onHandleSleep={props.onHandleSleep}/>;
+  if (props.isDead) {
+    buttonToDisplay = null;
+  }
   return(
     <div>
       <style jsx>{`
@@ -17,8 +21,7 @@ function Fatigue(props) {
       <div className='fatigue-wrapper'>
         <p>Fatigue</p>
         <ProgressBar now={props.fatigueLevel} />
-        <Sleep
-          onHandleSleep={props.onHandleSleep}/>
+        {buttonToDisplay}
       </div>
     </div>
   );
@@ -27,6 +30,7 @@ function Fatigue(props) {
 Fatigue.propTypes = {
   onHandleSleep: PropTypes.func,
   fatigueLevel: PropTypes.number,
+  isDead: PropTypes.bool
 };
 
 export default Fatigue;
